@@ -7,7 +7,7 @@ export default function Home() {
   const formBackground = useColorModeValue("gray.100", "gray.700")
   const timeOfZone = new Date()
 
-  const toggleColorMode = () => {
+  var toggleColorMode = () => {
     if (timeOfZone.getHours() < 18) {
       useColorMode()
     }
@@ -15,7 +15,7 @@ export default function Home() {
   }
 
   return (
-    <Flex height="100vh" alignItems="center" justifyContent="center">
+    <Flex height="100vh" alignItems="center" justifyContent="center" onLoad={toggleColorMode}>
       <Flex direction="column" background={formBackground} p={12} rounded={6}>
         <Heading mb={6}>Login</Heading>
         <Input placeholder="nanitamo19@gmail.com" variant="filled" mb={3} type="email" />
@@ -23,7 +23,7 @@ export default function Home() {
         <Button mb={6} colorScheme="teal">Login</Button>
         <Link>Esqueceu a sua senha?</Link>
 
-        <Button onClick={toggleColorMode}>Dark Mode</Button>
+        {/* <Button onClick={toggleColorMode}>Dark Mode</Button> */}
       </Flex>
     </Flex>
   )
